@@ -1,18 +1,24 @@
-#include<stdio>
+#include<stdio.h>
+int gcd(int,int);
 int main(){
-    int a,b,r,a1,b1;
-    scanf("%d%d",&a,&b);    
-    if(a>b){
-        a1=b;
-        b1=a;
+    int a,b,c;
+    printf("Enter two numbers: ");
+    scanf("%d %d",&a,&b);
+    c=gcd(a,b);
+    printf("GCD of %d and %d is %d\n",a,b,c);
+    return 0;
+}
+int gcd(int a,int b){
+    int t;
+    if(a<b){
+        t=a;
+        a=b;
+        b=t;
     }
-    else{
-        a1=a;
-        b1=b;
+    while(b>0){
+        t=a%b;
+        a=b;
+        b=t;
     }
-    while(b1>0){
-        r=a1%b1;
-        a1=b1;
-        b1=r;
-    }
+    return a ;
 }
