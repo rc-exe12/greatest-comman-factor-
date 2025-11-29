@@ -10,15 +10,10 @@ int main(){
 }
 int gcd(int a,int b){
     int t;
-    if(a<b){
-        t=a;
-        a=b;
-        b=t;
+    if(b==0){
+        return a;
     }
-    while(b>0){
-        t=a%b;
-        a=b;
-        b=t;
-    }
-    return a ;
+    else 
+        return gcd(b,a%b);
+   
 }
